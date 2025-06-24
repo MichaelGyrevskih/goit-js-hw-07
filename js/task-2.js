@@ -1,35 +1,43 @@
-class Storage{
-    #items;
-    constructor(items){
-        this.#items = items;
-    }
-    getItems(){
-        return this.#items;
-    }
-    addItem(newItem){
-        if (!newItem) {
-        console.warn("Тут нічого немає!");
-        return;
-    }
-        this.#items.push(newItem);
-    }
-    removeItem(item){
-        if(this.#items.includes(item))
-        {
-            this.#items.splice(this.#items.indexOf(item), 1);
-        }
-    }
-}
-console.log("      ");
+const images = [
+  {
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
+  },
+  {
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+  },
+  {
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
+  },
+  {
+    url: "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",
+    alt: "Alpine Spring Meadows",
+  },
+  {
+    url: "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",
+    alt: "Nature Landscape",
+  },
+  {
+    url: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
+    alt: "Lighthouse Coast Sea",
+  },
+];
 console.log("Task-2"); 
-const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+const gallery = document.querySelector(".gallery");
 
-storage.addItem("Droid");
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+gallery.style.display = "flex";
+gallery.style.flexWrap = "wrap";
+gallery.style.gap = "25px";
 
-storage.removeItem("Prolonger");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+const markup = createGallery(images);
+gallery.insertAdjacentHTML("beforeend", markup);
 
-storage.removeItem("Scaner");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+function createGallery(arr) {
+return arr.map((picture) =>
+`<li class="car-card">
+<img src="s${picture. img}" alt="${picture.alt}" class="car-image"/>
+</li>`
+).join("");
+}
