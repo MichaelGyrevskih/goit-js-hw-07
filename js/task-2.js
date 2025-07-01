@@ -37,7 +37,7 @@ gallery.insertAdjacentHTML("beforeend", markup);
 function createGallery(arr) {
 return arr.map((picture) =>
 `<li class="car-card">
-<img src="s${picture. img}" alt="${picture.alt}" class="car-image"/>
+<img src="${picture.url}" alt="${picture.alt}" class="car-image"/>
 </li>`
 ).join("");
 }
